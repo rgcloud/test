@@ -1,4 +1,4 @@
-npipeline {
+pipeline {
     agent any
     stages {
         stage('Build') {
@@ -10,7 +10,7 @@ npipeline {
                     def minor = versions[0] + '.' + versions[1]
                     def patch = version.trim()
                     docker.withRegistry('', 'solankar1234') {
-                        def image = docker.build('rgcloud/blog-docker-versioning:latest')
+                    def image = docker.build('rgcloud/blog-docker-versioning:latest')
                         image.push()
                         image.push(major)
                         image.push(minor)
